@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>MeCalc  ft. Zack Galifianaks</title>
+    <style>
+        html {
+            font-size: 62.5%;
+            box-sizing: border-box;
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: inherit;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #gif-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    object-fit: cover;
+}
+
+.calculator {
+    border: 1px solid rgba(71, 61, 61, 0.7);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 400px;
+    height: 100vh;
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 1;
+}
+
+.calculator-screen {
+    width: 100%;
+    height: 80px;
+    border: none;
+    background-color: transparent;
+    color: #564f4f;
+    text-align: right;
+    padding-right: 20px;
+    padding-left: 10px;
+    font-size: 9rem;
+}
+
+.calculator-keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    padding: 20px;
+}
+
+button {
+    height: 60px;
+    font-size: 2rem !important;
+}
+
+.equal-sign {
+    height: 98%;
+    grid-area: 2 / 4 / 6 / 5;
+}
+
+    </style>
+</head>
+
+<body>
+    <img src="c:\Users\rayzr\OneDrive\Desktop\Html Files\Moya.CompreExam\buot-naya.jpg" id="gif-background" alt="Zack Galifianakis GIF">
+
+    <div class="calculator">
+        <div class="calculator-screen" id="result" disabled></div>
+        <div class="calculator-keys">
+            <button onclick="display('1')">1</button>
+            <button onclick="display('2')">2</button>
+            <button onclick="display('3')">3</button>
+            <button onclick="clearScreen()">C</button>
+            <button onclick="display('4')">4</button>
+            <button onclick="display('5')">5</button>
+            <button onclick="display('6')">6</button>
+            <button onclick="display('7')">7</button>
+            <button onclick="display('8')">8</button>
+            <button onclick="display('9')">9</button>
+            <button onclick="display('0')">0</button>
+            <button onclick="display('-')">-</button>
+            <button onclick="display('/')">/</button>
+            <button class="equal-sign" onclick="calculate()">=</button>
+            <button onclick="display('.')">.</button>
+            <button onclick="display('*')">*</button>
+            <button onclick="display('+')">+</button>
+        </div>
+    </div>
+
+    <script>
+        function clearScreen() {
+            document.getElementById("result").innerText = "";
+        }
+
+        function display(value) {
+            document.getElementById("result").innerText += value;
+        }
+
+        function calculate() {
+            var expression = document.getElementById("result").innerText;
+            var result = eval(expression);
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+</body>
+
+</html>
